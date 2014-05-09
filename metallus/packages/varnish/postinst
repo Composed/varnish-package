@@ -1,0 +1,23 @@
+#! /bin/bash
+set -e
+
+case "$1" in
+  configure)
+    [ -z "$VARNISH_USER" ] && VARNISH_USER="varnish"
+    [ -z "$VARNISH_GROUP" ] && VARNISH_GROUP="varnish"
+    if ! getent group "$VARNISH_GROUP" > /dev/null 2>&1 ; then
+      addgroup --system "$VARNISH_GROUP" --quiet
+    fi
+    if ! id $VARNISH_USER > /dev/null 2>&1 ; then
+      adduser --system --no-create-home \
+      --ingroup "$VARNISH_GROUP" --disabled-password --shell /bin/false \
+      "$VARNISH_USER"
+    fi
+
+    # if $2 is set, this is an upgrade
+    if ( [ -n $2 ] && [ "$RESTART_ON_UPGRADE" = "true" ] ) ; then
+      sv -v down varnish
+      sv -v up varnish
+    fi
+    ;;
+esac

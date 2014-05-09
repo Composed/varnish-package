@@ -1,0 +1,19 @@
+software_groups: &software
+  - "base"
+jobs:
+  default:
+    builder: "make"
+    base: "ubuntu:12.04"
+    software_groups: *software
+    packages:
+      - type: debian
+        name: varnish
+        version: 4.0.0
+        depends:
+          - "libedit-dev"
+          - "libncurses-dev"
+          - "libpcre3-dev"
+          - "runit"
+        target: install
+        repos:
+          - mxm
