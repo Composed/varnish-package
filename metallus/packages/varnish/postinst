@@ -19,7 +19,6 @@ case "$1" in
       sv -v down varnish
       sv -v up varnish
     fi
-    ;;
-
     ldconfig
+    ;;
 esac
