@@ -20,4 +20,6 @@ case "$1" in
       sv -v up varnish
     fi
     ;;
+
+    ldconfig
 esac
