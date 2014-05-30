@@ -8,7 +8,7 @@ jobs:
     packages:
       - type: debian
         name: varnish
-        version: 4.0.1
+        version: 4.0.2
         depends:
           - "libedit-dev"
           - "libncurses-dev"
