@@ -8,7 +8,7 @@ jobs:
     packages:
       - type: debian
         name: varnish
-        version: 4.0.4
+        version: 4.0.5
         depends:
           - "libedit-dev"
           - "libncurses-dev"
@@ -17,4 +17,5 @@ jobs:
         target: install
         repos:
           - mxm
-        activates: varnish-upgrade
+        activates:
+          - varnish-upgrade
