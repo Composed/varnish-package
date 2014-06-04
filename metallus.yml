@@ -18,4 +18,4 @@ jobs:
         repos:
           - mxm
         activates:
-          - varnish-upgrade
+          - varnish_upgrade
