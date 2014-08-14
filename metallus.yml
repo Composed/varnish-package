@@ -16,6 +16,6 @@ jobs:
           - "runit"
         target: install
         repos:
-          - mxm
+          - mxm-public
         activates:
           - varnish-upgrade
