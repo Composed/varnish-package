@@ -3,13 +3,13 @@ software_groups: &software
 
 packages:
   branch_codenames:
-    master: unstable
-    production: stable
+    master: trusty-unstable
+    production: trusty-stable
 
 jobs:
   varnish:
     builder: "make"
-    base: "ubuntu:12.04"
+    base: "quay.io/madebymany/build-bases:trusty"
     software_groups: *software
     packages:
       - type: debian
