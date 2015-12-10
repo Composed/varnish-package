@@ -7,7 +7,7 @@ packages:
     production: stable
 
 jobs:
-  default:
+  varnish:
     builder: "make"
     base: "ubuntu:12.04"
     software_groups: *software
@@ -22,6 +22,6 @@ jobs:
           - "runit"
         target: install
         repos:
-          - mxm-public
+          - composed-public
         activates:
           - varnish-upgrade
