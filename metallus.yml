@@ -3,18 +3,18 @@ software_groups: &software
 
 packages:
   branch_codenames:
-    master: unstable
-    production: stable
+    master: trusty-unstable
+    production: trusty-stable
 
 jobs:
-  default:
+  varnish:
     builder: "make"
-    base: "ubuntu:12.04"
+    base: "quay.io/madebymany/build-bases:trusty"
     software_groups: *software
     packages:
       - type: debian
         name: varnish
-        version: 4.0.10-1
+        version: 4.0.10-2
         depends:
           - "libedit-dev"
           - "libncurses-dev"
@@ -22,6 +22,6 @@ jobs:
           - "runit"
         target: install
         repos:
-          - mxm-public
+          - composed-public
         activates:
           - varnish-upgrade
